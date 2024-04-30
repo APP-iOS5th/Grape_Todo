@@ -37,7 +37,7 @@ struct ContentView: View {
                         .foregroundColor(Color(hex: "#D7DDDA"))
                         .frame(height: geo.size.height * (1/2))
                     ListView
-                        .navigationTitle("Todo")
+                        .navigationTitle("TODO")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 ActionBar
@@ -74,13 +74,14 @@ struct ContentView: View {
         HStack {
             Spacer()
             Button {
+                print("Button Action")
                 showingAddTodo = true
             } label: {
                 Label("Add task", systemImage: "plus")
 //                    .labelStyle(.titleAndIcon)
-//                    .font(.subheadline)
+                    .font(.subheadline)
             }
-//            .buttonStyle(.bordered)
+            .buttonStyle(.borderless)
 //            .controlSize(.mini)
         }
     }
@@ -88,10 +89,9 @@ struct ContentView: View {
     @ViewBuilder
     private var EmptyView: some View {
         ContentUnavailableView {
-            Label("아직 할일이 없으시네요", systemImage: "text.badge.plus")
-        } description: {
-            Text("새 할일을 추가 하시면 할일들 보여질 거에요 ")
+            Label("할 일을 추가해주세요.", systemImage: "text.badge.plus")
         }
+        
     }
     
     // MARK: Data operations
