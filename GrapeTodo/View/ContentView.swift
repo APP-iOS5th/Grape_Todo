@@ -8,6 +8,17 @@
 import SwiftUI
 import SwiftData
 
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
+        let rgbValue = UInt32(hex, radix: 16)
+        let r = Double((rgbValue! & 0xFF0000) >> 16) / 255
+        let g = Double((rgbValue! & 0x00FF00) >> 8) / 255
+        let b = Double(rgbValue! & 0x0000FF) / 255
+        self.init(red: r, green: g, blue: b)
+    }
+}
+
 struct ContentView: View {
     @Environment(\.modelContext)
     private var context
@@ -21,9 +32,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             GeometryReader{ geo in
-                VStack{
-                    Image(systemName: "trash").backgroundStyle(Color.red)
-                        .frame(height: geo.size.height * (1/3))
+                VStack(spacing: 0){
+                    Rectangle()
+                        .foregroundColor(Color(hex: "#D7DDDA"))
+                        .frame(height: geo.size.height * (1/2))
                     ListView
                         .navigationTitle("Todo")
                         .toolbar {
@@ -36,13 +48,14 @@ struct ContentView: View {
                         }
                         .overlay {
                             if todos.isEmpty {
-                                EmptyView.background(Color.red)
+                                EmptyView.background()
                             }
                         }
-                        .frame(height: geo.size.height * (2/3))
+                        .frame(height: geo.size.height * (1/2))
                 }
+                .background(Color(hex: "#F2F2F7"))
                 
-            }.tint(.orange)
+            }
         }
     }
     
@@ -64,11 +77,11 @@ struct ContentView: View {
                 showingAddTodo = true
             } label: {
                 Label("Add task", systemImage: "plus")
-                    .labelStyle(.titleAndIcon)
-                    .font(.subheadline)
+//                    .labelStyle(.titleAndIcon)
+//                    .font(.subheadline)
             }
-            .buttonStyle(.bordered)
-            .controlSize(.mini)
+//            .buttonStyle(.bordered)
+//            .controlSize(.mini)
         }
     }
     

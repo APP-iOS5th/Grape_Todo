@@ -27,12 +27,12 @@ struct AddTodoView: View {
             VStack {
                 Form {
                     Section {
-                        TextField("할일 내용 적기", text: $todoName)
-                        PriorityColorPicker(selectedColor: $todoColor)
+                        TextField("할 일을 입력하세요.", text: $todoName)
+//                        PriorityColorPicker(selectedColor: $todoColor)
                     }
                 }
             }
-            .navigationTitle("새로운 Todo")
+//            .navigationTitle("새로운 Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -47,11 +47,11 @@ struct AddTodoView: View {
                     } label: {
                         Text("Save")
                     }
-                    .buttonStyle(.bordered)
-                    .controlSize(.mini)
+//                    .buttonStyle(.bordered)
+//                    .controlSize(.mini)
                 }
             }
-            .tint(.orange)
+//            .tint(.orange)
         }
     }
     
