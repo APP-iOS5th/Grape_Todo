@@ -22,6 +22,8 @@ struct AddTodoView: View {
     @State
     private var todoColor = SelectColor.red
     
+    @State private var priority = 0
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -30,8 +32,15 @@ struct AddTodoView: View {
                         TextField("할 일을 입력하세요.", text: $todoName)
 //                        PriorityColorPicker(selectedColor: $todoColor)
                     }
+                    Picker(selection: $priority, label: Text("중요도")) {
+                        Text("Routine").tag(1)
+                        Text("High").tag(2)
+                        Text("Medium").tag(3)
+                        Text("Low").tag(4)
+                    }.pickerStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Picker Style@*/DefaultPickerStyle()/*@END_MENU_TOKEN@*/)
                 }
             }
+            
 //            .navigationTitle("새로운 Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

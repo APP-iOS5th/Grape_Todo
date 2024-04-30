@@ -35,7 +35,10 @@ struct ContentView: View {
                 VStack(spacing: 0){
                     Rectangle()
                         .foregroundColor(Color(hex: "#D7DDDA"))
-                        .frame(height: geo.size.height * (1/2))
+//                        .frame(height: geo.size.height * (1/2))
+                        .frame(width: geo.size.width * (8/9), height: geo.size.height * (3/7))
+                        .cornerRadius(25)
+                    
                     ListView
                         .navigationTitle("TODO")
                         .toolbar {
@@ -78,20 +81,19 @@ struct ContentView: View {
                 showingAddTodo = true
             } label: {
                 Label("Add task", systemImage: "plus")
-//                    .labelStyle(.titleAndIcon)
-                    .font(.subheadline)
             }
             .buttonStyle(.borderless)
-//            .controlSize(.mini)
         }
     }
     
     @ViewBuilder
     private var EmptyView: some View {
         ContentUnavailableView {
-            Label("할 일을 추가해주세요.", systemImage: "text.badge.plus")
+            Text("할 일을 추가하세요.").font(.system(size:17))
+                .fontWeight(.regular)
+//            Label("할 일을 추가해주세요.", systemImage: "text.badge.plus")
         }
-        
+        .background(Color(hex: "#F2F2F7"))
     }
     
     // MARK: Data operations
