@@ -9,10 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
     @Environment(\.modelContext)
     private var context
     
     @Query(sort: \Todo.createdAt, animation: .smooth)
+//    @Query(sort)
     private var todos: [Todo]
     
     @State
@@ -22,8 +24,9 @@ struct ContentView: View {
         NavigationStack {
             GeometryReader{ geo in
                 VStack{
-                    Image(systemName: "trash").backgroundStyle(Color.red)
-                        .frame(height: geo.size.height * (1/3))
+                    Spacer()
+                    Image(systemName: "\(Grape[counter()])")
+                    Spacer()
                     ListView
                         .navigationTitle("Todo")
                         .toolbar {
@@ -93,6 +96,16 @@ struct ContentView: View {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func counter() -> Int {
+        var countComplete = 0
+        for todo in todos {
+            if todo.completed == true {
+                countComplete += 1
+            }
+        }
+        return countComplete
     }
 }
 
