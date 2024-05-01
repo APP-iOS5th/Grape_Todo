@@ -18,6 +18,8 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 }
+let primaryColor = Color(Color(hex: "#BAF7AD"))
+let uncheckedColor = Color(Color(hex: "#F4F4F4"))
 
 struct ContentView: View {
     @Environment(\.modelContext)
