@@ -40,9 +40,9 @@ struct TodoView: View {
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
                 Button(action: {showingTodoDetail = true}) {
-                    Text($priority.text)
+//                    Text(todo.priotity?)
                     Image(systemName: "chevron.right")
-//                        .foregroundColor(todoColor.representable)
+//                        .foregroundColor(todoColor.secondary)
                 }.buttonStyle(.plain).navigationDestination(isPresented:$showingTodoDetail) { TodoDetailView(todo: todo)}
             }
         }

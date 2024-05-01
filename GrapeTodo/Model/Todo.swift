@@ -17,6 +17,7 @@ final class Todo {
     var createdAt: Date
     var completed: Bool
     var color: String
+//    var priority: String
     
     init(content: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor) {
         self.id = UUID()
