@@ -20,7 +20,7 @@ struct AddTodoView: View {
     private var todoName: String = ""
     
     @State
-    private var todoColor = SelectColor.red
+    private var todoColor = SelectColor.checked
     
     var body: some View {
         NavigationView {
@@ -28,7 +28,7 @@ struct AddTodoView: View {
                 Form {
                     Section {
                         TextField("할일 내용 적기", text: $todoName)
-                        PriorityColorPicker(selectedColor: $todoColor)
+                        
                     }
                 }
             }

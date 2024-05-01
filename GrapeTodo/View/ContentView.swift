@@ -21,11 +21,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             GeometryReader{ geo in
-                VStack{
-                    Image(systemName: "trash").backgroundStyle(Color.red)
-                        .frame(height: geo.size.height * (1/3))
+                VStack(spacing: 0){
+                    Rectangle()
+                        .foregroundColor(Color(hex: "#D7DDDA"))
+                        .frame(width: geo.size.width * (8/9), height: geo.size.height * (3/7))
+                        .cornerRadius(25)
                     ListView
-                        .navigationTitle("Todo")
+                        .navigationTitle("TODO")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 ActionBar
@@ -36,13 +38,13 @@ struct ContentView: View {
                         }
                         .overlay {
                             if todos.isEmpty {
-                                EmptyView.background(Color.red)
+                                EmptyView.background()
                             }
                         }
-                        .frame(height: geo.size.height * (2/3))
+                        .frame(height: geo.size.height * (1/2))
                 }
-                
-            }.tint(.orange)
+                .background(Color(hex: "#F2F2F7"))
+            }
         }
     }
     
@@ -64,11 +66,8 @@ struct ContentView: View {
                 showingAddTodo = true
             } label: {
                 Label("Add task", systemImage: "plus")
-                    .labelStyle(.titleAndIcon)
-                    .font(.subheadline)
             }
             .buttonStyle(.bordered)
-            .controlSize(.mini)
         }
     }
     
