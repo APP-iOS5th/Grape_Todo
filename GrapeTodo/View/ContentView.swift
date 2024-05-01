@@ -67,17 +67,17 @@ struct ContentView: View {
             } label: {
                 Label("Add task", systemImage: "plus")
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(.borderless)
         }
     }
     
     @ViewBuilder
     private var EmptyView: some View {
         ContentUnavailableView {
-            Label("아직 할일이 없으시네요", systemImage: "text.badge.plus")
-        } description: {
-            Text("새 할일을 추가 하시면 할일들 보여질 거에요 ")
+            Text("할 일을 추가하세요.").font(.system(size:17))
+                .fontWeight(.regular)
         }
+        .background(Color(hex: "#F2F2F7"))
     }
     
     // MARK: Data operations

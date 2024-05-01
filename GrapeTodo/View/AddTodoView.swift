@@ -22,17 +22,23 @@ struct AddTodoView: View {
     @State
     private var todoColor = SelectColor.checked
     
+    @State private var priority = 0
+    
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section {
-                        TextField("할일 내용 적기", text: $todoName)
-                        
+                        TextField("할 일을 입력하세요.", text: $todoName)
                     }
+                    Picker(selection: $priority, label: Text("중요도")) {
+                        Text("Routine").tag(1)
+                        Text("High").tag(2)
+                        Text("Medium").tag(3)
+                        Text("Low").tag(4)
+                    }.pickerStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Picker Style@*/DefaultPickerStyle()/*@END_MENU_TOKEN@*/)
                 }
             }
-            .navigationTitle("새로운 Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -47,11 +53,8 @@ struct AddTodoView: View {
                     } label: {
                         Text("Save")
                     }
-                    .buttonStyle(.bordered)
-                    .controlSize(.mini)
                 }
             }
-            .tint(.orange)
         }
     }
     
