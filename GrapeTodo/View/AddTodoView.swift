@@ -20,7 +20,7 @@ struct AddTodoView: View {
     private var todoName: String = ""
     
     @State
-    private var todoColor = SelectColor.red
+    private var todoColor = SelectColor.checked
     
     @State private var priority = 0
     
@@ -68,8 +68,8 @@ struct AddTodoView: View {
         guard todoName.isEmpty == false else { return }
         
         let newTodo = Todo(
-            content: todoName,
-            color: todoColor
+            content: todoName
+            ,color: todoColor
         )
         context.insert(newTodo)
         

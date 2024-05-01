@@ -8,18 +8,6 @@
 import SwiftUI
 import SwiftData
 
-extension Color {
-    init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
-        let rgbValue = UInt32(hex, radix: 16)
-        let r = Double((rgbValue! & 0xFF0000) >> 16) / 255
-        let g = Double((rgbValue! & 0x00FF00) >> 8) / 255
-        let b = Double(rgbValue! & 0x0000FF) / 255
-        self.init(red: r, green: g, blue: b)
-    }
-}
-let primaryColor = Color(Color(hex: "#BAF7AD"))
-let uncheckedColor = Color(Color(hex: "#F4F4F4"))
 
 struct ContentView: View {
     @Environment(\.modelContext)
@@ -37,7 +25,6 @@ struct ContentView: View {
                 VStack(spacing: 0){
                     Rectangle()
                         .foregroundColor(Color(hex: "#D7DDDA"))
-//                        .frame(height: geo.size.height * (1/2))
                         .frame(width: geo.size.width * (8/9), height: geo.size.height * (3/7))
                         .cornerRadius(25)
                     
@@ -93,7 +80,6 @@ struct ContentView: View {
         ContentUnavailableView {
             Text("할 일을 추가하세요.").font(.system(size:17))
                 .fontWeight(.regular)
-//            Label("할 일을 추가해주세요.", systemImage: "text.badge.plus")
         }
         .background(Color(hex: "#F2F2F7"))
     }
