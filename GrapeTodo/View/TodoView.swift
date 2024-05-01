@@ -29,7 +29,6 @@ struct TodoView: View {
     var body: some View {
         NavigationStack{
             HStack(){
-
                 Button(action: toggleCompleted) {
                     Circle()
                         .fill(todo.completed ? Color(hex: "#F4F4F4") : Color(hex: "#BAF7AD"))
@@ -41,7 +40,8 @@ struct TodoView: View {
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
                 Button(action: {showingTodoDetail = true}) {
-                    Image(systemName: "greaterthan")
+                    Text($priority.text)
+                    Image(systemName: "chevron.right")
 //                        .foregroundColor(todoColor.representable)
                 }.buttonStyle(.plain).navigationDestination(isPresented:$showingTodoDetail) { TodoDetailView(todo: todo)}
             }

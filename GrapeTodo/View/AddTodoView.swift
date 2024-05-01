@@ -30,7 +30,6 @@ struct AddTodoView: View {
                 Form {
                     Section {
                         TextField("할 일을 입력하세요.", text: $todoName)
-                        //                        PriorityColorPicker(selectedColor: $todoColor)
                     }
                     Picker(selection: $priority, label: Text("중요도")) {
                         Text("Routine").tag(1)
