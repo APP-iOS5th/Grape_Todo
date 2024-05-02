@@ -34,8 +34,7 @@ struct AddTodoView: View {
                     Picker(selection: $priority, label: Text("중요도")) {
                         Text("Routine").tag(1)
                         Text("High").tag(2)
-                        Text("Medium").tag(3)
-                        Text("Low").tag(4)
+                        Text("Low").tag(3)
                     }.pickerStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Picker Style@*/DefaultPickerStyle()/*@END_MENU_TOKEN@*/)
                 }
             }

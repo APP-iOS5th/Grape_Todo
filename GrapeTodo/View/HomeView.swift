@@ -17,7 +17,7 @@ struct HomeView: View {
                     Text("TODO")
                 }
             //            Achievement()
-            Text("Achivement")
+            AchievementView()
                 .tabItem {
                     Image(systemName: "calendar.badge.checkmark").foregroundColor(.black)
                     Text("Achivement")
