@@ -1,38 +1,38 @@
+////
+////  PriorityColorPicker.swift
+////  GrapeTodo
+////
+////  Created by changhyen yun on 4/30/24.
+////
 //
-//  PriorityColorPicker.swift
-//  GrapeTodo
+//import SwiftUI
 //
-//  Created by changhyen yun on 4/30/24.
+//struct PriorityColorPicker: View {
+//    @Binding var selectedColor: SelectColor
+//    
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            Text("색깔 선택 하기 ")
+//                .font(.callout)
+//            HStack {
+//                ForEach(SelectColor.allCases, id: \.self) { taskColor in
+//                    Button {
+//                        selectedColor = taskColor
+//                    } label: {
+//                        Image(systemName: selectedColor == taskColor ? "circle.circle.fill" : "circle")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 28, height: 28)
+//                    }
+//                    .buttonStyle(.borderless)
+//                    .foregroundColor(taskColor.representable)
+//                    .frame(maxWidth: .infinity)
+//                }
+//            }
+//        }
+//    }
+//}
 //
-
-import SwiftUI
-
-struct PriorityColorPicker: View {
-    @Binding var selectedColor: SelectColor
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("색깔 선택 하기 ")
-                .font(.callout)
-            HStack {
-                ForEach(SelectColor.allCases, id: \.self) { taskColor in
-                    Button {
-                        selectedColor = taskColor
-                    } label: {
-                        Image(systemName: selectedColor == taskColor ? "circle.circle.fill" : "circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 28, height: 28)
-                    }
-                    .buttonStyle(.borderless)
-                    .foregroundColor(taskColor.representable)
-                    .frame(maxWidth: .infinity)
-                }
-            }
-        }
-    }
-}
-
-#Preview {
-    PriorityColorPicker(selectedColor: .constant(.red))
-}
+//#Preview {
+//    PriorityColorPicker(selectedColor: .constant(.red))
+//}

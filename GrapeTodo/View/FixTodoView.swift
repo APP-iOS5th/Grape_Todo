@@ -1,14 +1,15 @@
 //
-//  AddView.swift
+//  FixTodoView.swift
 //  GrapeTodo
 //
-//  Created by changhyen yun on 4/30/24.
+//  Created by John Yun on 5/2/24.
 //
 
 import SwiftUI
 import SwiftData
 
-struct AddTodoView: View {
+struct FixTodoView: View {
+    @Binding var todo: Todo
     
     @Environment(\.modelContext)
     private var context
@@ -17,22 +18,27 @@ struct AddTodoView: View {
     var dismiss
     
     @State
-    private var todoName: String = ""
+    private var todoName: String
     
-//    @State
-//    private var todoColor = SelectColor.red
+    //    @State
+    //    private var todoColor: SelectColor
+    
+    init(todo: Binding<Todo>) {
+        self._todo = todo
+        self._todoName = State(initialValue: todo.wrappedValue.content)
+        //        self._todoColor = State(initialValue: SelectColor(rawValue: todo.wrappedValue.color) ?? .red)
+    }
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section {
-                        TextField("할일 내용 적기", text: $todoName)
-//                        PriorityColorPicker(selectedColor: $todoColor)
+                        TextField("", text: $todoName)
                     }
                 }
             }
-            .navigationTitle("새로운 Todo")
+            .navigationTitle("Todo")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -51,19 +57,17 @@ struct AddTodoView: View {
                     .controlSize(.mini)
                 }
             }
-            .tint(.orange)
         }
     }
     
     private func save() {
-        guard todoName.isEmpty == false else { return }
+        guard !todoName.isEmpty else { return }
         
-        let newTodo = Todo(
-            content: todoName
-//            color: todoColor
-        )
-        context.insert(newTodo)
+        // Update the todo object with the new values
+        todo.content = todoName
+        //        todo.color = todoColor.rawValue
         
+        // Save the changes to CoreData
         do {
             try context.save()
         } catch {
@@ -72,8 +76,4 @@ struct AddTodoView: View {
         
         dismiss()
     }
-}
-
-#Preview {
-    AddTodoView()
 }
