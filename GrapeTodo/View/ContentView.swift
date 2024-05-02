@@ -18,6 +18,9 @@ struct ContentView: View {
     @State
     var showingAddTodo = false
     
+    @State
+    var completedCount : Int = 65
+    
     var body: some View {
         NavigationStack {
             
@@ -31,9 +34,12 @@ struct ContentView: View {
                             .cornerRadius(25)
                         
                         GeometryReader { geometry in
-                            Image("podoal16+")
-                                .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+                            GrapesForCompletedTodos(completedCount: completedCount, geometry: geometry)
                         }
+//                        GeometryReader { geometry in
+//                            Image("podoal16+")
+//                                .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+//                        }
                     }
                     
                     ListView
@@ -117,73 +123,36 @@ struct ContentView: View {
     
 }
 
-// MARK: user typed keyword
-//    @State var searchKeyword: String = ""
-//    @State private var isPresented = false
-//
-//    var results: [Todo] {
-//        return searchKeyword.isEmpty ? todos : todos.filter({ todo in
-//            todo.title.lowercased().contains(searchKeyword.lowercased())
-//        })
-//    }
-//    var body: some View {
-//        GeometryReader{ geo in
-//
-//            NavigationStack {
-//                VStack{
-//                    Image(systemName: "trash").backgroundStyle(Color.red)
-//                        .frame(height: geo.size.height * (1/3))
-//
-//                    List {
-//                        ForEach(results, id: \.self) { todo in
-//                            NavigationLink(destination: TodoDetailView(todo: todo)) {
-//                                HStack(alignment: .center) {
-////                                    StatusIndicator(status: todo.status)
-//                                    StatusIndicator(priority: todo.priority)
-//                                    Spacer()
-//                                    VStack(alignment: .leading) {
-//                                        Text(todo.title)
-//                                            .font(.title3)
-//                                        Text(formatDate(todo.date))
-//                                            .font(.subheadline)
-//                                            .foregroundColor(.gray)
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-////                    .listStyle(.inset)
-//
-//                    // MARK: Add searchable modifier
-//                    .searchable(text: $searchKeyword)
-//                    .frame(height: geo.size.height * (2/3))
-//                }
-//                .navigationTitle("포도알 ToDo 만들기")
-//                .navigationBarTitleDisplayMode(.inline)
-//                .toolbar {
-//                    Button {
-//                        isPresented.toggle()
-//                    } label: {
-//                        Image(systemName: "plus")
-//                            .font(.headline)
-//                    }
-//                }
-//                .sheet(isPresented: $isPresented) {
-//                    AddView()
-//                }
-//
-//            }
-//        }
-//    }
-//
-//    private func formatDate(_ date: Date) -> String {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .medium
-//        formatter.timeStyle = .short
-//        return formatter.string(from: date)
-//    }
-//}
-
-#Preview {
-    ContentView().modelContainer(for: Todo.self, inMemory: false)
+struct GrapesForCompletedTodos: View {
+    var completedCount : Int
+    var geometry: GeometryProxy
+    
+    init(completedCount: Int, geometry: GeometryProxy) {
+            self.completedCount = completedCount
+            self.geometry = geometry
+        }
+    
+    var body: some View {
+        GeometryReader { geometry in
+            if completedCount >= 16 && completedCount <= 30 {
+                Image("podoal16+")
+                    .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+            } else if completedCount >= 31 && completedCount <= 45 {
+                Image("podoal31+")
+                    .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+            } else if completedCount >= 46 && completedCount <= 60 {
+                Image("podoal46")
+                    .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+            } else if completedCount >= 61 {
+                Image("podoal61")
+                    .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+            } else {
+                EmptyView()
+            }
+        }
+    }
 }
+    
+    #Preview {
+        ContentView().modelContainer(for: Todo.self, inMemory: false)
+    }
