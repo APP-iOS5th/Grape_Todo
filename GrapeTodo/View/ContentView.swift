@@ -19,7 +19,7 @@ struct ContentView: View {
     var showingAddTodo = false
     
     @State
-    var completedCount : Int = 65
+    var completedCount : Int = 100
     
     var body: some View {
         NavigationStack {
@@ -141,10 +141,10 @@ struct GrapesForCompletedTodos: View {
                 Image("podoal31+")
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else if completedCount >= 46 && completedCount <= 60 {
-                Image("podoal46")
+                Image("podoal46+")
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else if completedCount >= 61 {
-                Image("podoal61")
+                Image("podoal61+")
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else {
                 EmptyView()
