@@ -20,12 +20,22 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            GeometryReader{ geo in
+            
+            GeometryReader{ a in
                 VStack(spacing: 0){
-                    Rectangle()
-                        .foregroundColor(Color(hex: "#D7DDDA"))
-                        .frame(width: geo.size.width * (8/9), height: geo.size.height * (3/7))
-                        .cornerRadius(25)
+                    
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color(hex: "#D7DDDA"))
+                            .frame(width: a.size.width * (8/9), height: a.size.height * (3/7))
+                            .cornerRadius(25)
+                        
+                        GeometryReader { geometry in
+                            Image("podoal16+")
+                                .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
+                        }
+                    }
+                    
                     ListView
                         .navigationTitle("TODO")
                         .toolbar {
@@ -41,7 +51,7 @@ struct ContentView: View {
                                 EmptyView.background()
                             }
                         }
-                        .frame(height: geo.size.height * (1/2))
+                        .frame(height: a.size.height * (1/2))
                 }
                 .background(Color(hex: "#F2F2F7"))
             }
@@ -93,6 +103,18 @@ struct ContentView: View {
             print(error.localizedDescription)
         }
     }
+    
+    private func counter() -> Int {
+        var countComplete = 0
+        for todo in todos {
+            if todo.completed == true {
+                countComplete += 1
+            }
+        }
+        print(countComplete)
+        return countComplete
+    }
+    
 }
 
 // MARK: user typed keyword

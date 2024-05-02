@@ -18,9 +18,9 @@ struct TodoView: View {
         self.todo = todo
     }
     
-//    private var todoColor: SelectColor {
-//        SelectColor(rawValue: todo.color) ?? .orange
-//    }
+    //    private var todoColor: SelectColor {
+    //        SelectColor(rawValue: todo.color) ?? .orange
+    //    }
     
     @State
     var showingTodoDetail = false
@@ -30,19 +30,17 @@ struct TodoView: View {
             HStack(){
                 Button(action: toggleCompleted) {
                     Circle()
-                        .fill(todo.completed ? Color(hex: "#F4F4F4") : Color(hex: "#BAF7AD"))
+                        .fill(todo.completed ? Color(hex: "#BAF7AD") : Color(hex: "#F4F4F4"))
                         .frame(width : 20)
-//                    Image(systemName: todo.completed ? "checkmark.circle.fill" : "circle")
-//                        .foregroundColor(todoColor.representable)
                 }.buttonStyle(.borderless)
                 Text(todo.content)
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
                 Button(action: {showingTodoDetail = true}) {
-//                    Text(todo.priotity?)
+                    //                    Text(todo.priotity?)
                     Image(systemName: "chevron.right")
-//                        .foregroundColor(todoColor.secondary)
                 }.buttonStyle(.plain).navigationDestination(isPresented:$showingTodoDetail) { TodoDetailView(todo: todo)}
+                
             }
         }
     }

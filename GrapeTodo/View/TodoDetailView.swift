@@ -26,7 +26,7 @@ struct TodoDetailView: View {
             //                StatusIndicator(priority: todo.priority)
         }
         .padding()
-        .navigationTitle("Todo Details")
+//        .navigationTitle("Todo Details")
     }
     
     private func formatDate(_ date: Date) -> String {
