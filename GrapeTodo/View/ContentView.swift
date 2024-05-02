@@ -36,10 +36,6 @@ struct ContentView: View {
                         GeometryReader { geometry in
                             GrapesForCompletedTodos(completedCount: completedCount, geometry: geometry)
                         }
-//                        GeometryReader { geometry in
-//                            Image("podoal16+")
-//                                .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
-//                        }
                     }
                     
                     ListView
@@ -57,7 +53,7 @@ struct ContentView: View {
                                 EmptyView.background()
                             }
                         }
-                        .frame(height: a.size.height * (1/2))
+                        .frame(height: a.size.height * (2/3))
                 }
                 .background(Color(hex: "#F2F2F7"))
             }
