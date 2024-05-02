@@ -133,15 +133,27 @@ struct GrapesForCompletedTodos: View {
         GeometryReader { geometry in
             if completedCount >= 16 && completedCount <= 30 {
                 Image("podoal16+")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 60.0, height: 40.0, alignment: .trailing)
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else if completedCount >= 31 && completedCount <= 45 {
                 Image("podoal31+")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 60.0, height: 40.0, alignment: .trailing)
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else if completedCount >= 46 && completedCount <= 60 {
                 Image("podoal46+")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 60.0, height: 40.0, alignment: .trailing)
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else if completedCount >= 61 {
                 Image("podoal61+")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 60.0, height: 40.0, alignment: .trailing)
                     .frame(width: geometry.size.width * 1.65, height: geometry.size.height * 0.3)
             } else {
                 EmptyView()
