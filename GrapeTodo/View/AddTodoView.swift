@@ -45,6 +45,7 @@ struct AddTodoView: View {
                         dismiss()
                     } label: {
                         Text("Cancel")
+                            .foregroundColor(.black)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -52,6 +53,7 @@ struct AddTodoView: View {
                         save()
                     } label: {
                         Text("Save")
+                            .foregroundColor(.black)
                     }
                 }
             }

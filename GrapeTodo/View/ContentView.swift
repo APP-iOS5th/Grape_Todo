@@ -80,6 +80,7 @@ struct ContentView: View {
                 Label("Add task", systemImage: "plus")
             }
             .buttonStyle(.borderless)
+            .foregroundColor(.green)
         }
     }
     
