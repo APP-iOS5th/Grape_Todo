@@ -24,7 +24,7 @@ struct TodoView: View {
     }
     
     @State
-    var showingTodoDetail = false
+    var showingAddTodo = false
     
     var body: some View {
         NavigationStack{
@@ -36,10 +36,10 @@ struct TodoView: View {
                 Text(todo.content)
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
-                Button(action: {showingTodoDetail = true}) {
+                Button(action: {showingAddTodo = true}) {
                     Image(systemName: "greaterthan")
                         .foregroundColor(todoColor.representable)
-                }.buttonStyle(.plain).navigationDestination(isPresented:$showingTodoDetail) { TodoDetailView(todo: todo)}
+                }.buttonStyle(.plain).navigationDestination(isPresented:$showingAddTodo) { AddTodoView() }
             }
         }
     }
