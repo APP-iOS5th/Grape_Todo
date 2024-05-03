@@ -142,17 +142,6 @@ struct ContentView: View {
         }
     }
     
-    private func counter() -> Int {
-        var countComplete = 0
-        for todo in todos {
-            if todo.completed == true {
-                countComplete += 1
-            }
-        }
-        print(countComplete)
-        return countComplete
-    }
-    
 }
 
 struct GrapesForCompletedTodos: View {
@@ -197,6 +186,7 @@ struct GrapesForCompletedTodos: View {
     }
 }
     
-    #Preview {
-        ContentView().modelContainer(for: Todo.self, inMemory: false)
-    }
+//#Preview {
+//    ContentView()
+//        .modelContainer(for: Todo.self, inMemory: false)
+//}
