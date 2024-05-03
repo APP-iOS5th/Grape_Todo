@@ -13,7 +13,7 @@ class GrapeViewModel: ObservableObject {
     var currentId: Int = 1
 
 
-    // 총 항목 개수를 반환하는 계산된 프로퍼티
+    // add버튼을 눌렀을 때 포도알이 생성되는 총 항목 개수를 반환하는 계산된 프로퍼티
     var totalItemCount: Int {
         grapes.reduce(0) { $0 + $1.count }
     }

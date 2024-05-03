@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct GrapeView: View {
-    @ObservedObject var grapeViewModel: GrapeViewModel
+    @EnvironmentObject var grapeViewModel: GrapeViewModel  // @ObservedObject,  @EnvironmentObject
     @Query private var todos: [Todo]
 
     var body: some View {
@@ -28,26 +28,26 @@ struct GrapeView: View {
         //            .frame(maxWidth: .infinity, maxHeight: .infinity) // 최대 크기 설정
         //        }
 
-        //        ZStack {
-        //            VStack(spacing: -10) {
-        //                ForEach(grapeViewModel.grapes.indices, id: \.self) { rowIndex in   // 행
-        //                    HStack(spacing: -15) {  // 층
-        //                        ForEach(grapeViewModel.grapes[rowIndex], id: \.id) { grapes in   // 열
-        //                            Circle()
-        //                                .fill(grapes.isCompleted ? Color.green : Color.gray)
-        //                                .stroke(Color.white, lineWidth: 2)
-        //                                .frame(width: 40, height: 40)
-        //                        }
-        //                    }
-        //
-        //                }
-        //                Spacer()
-        //            }
-        //            .padding(.top, 10)
-        //        }
+        ZStack {
+            VStack(spacing: -10) {
+                ForEach(grapeViewModel.grapes.indices, id: \.self) { rowIndex in   // 행
+                    HStack(spacing: -15) {  // 층
+                        ForEach(grapeViewModel.grapes[rowIndex], id: \.id) { grapes in   // 열
+                            Circle()
+                                .fill(grapes.isCompleted ? Color.green : Color.gray)
+                                .stroke(Color.white, lineWidth: 2)
+                                .frame(width: 40, height: 40)
+                        }
+                    }
+
+                }
+                Spacer()
+            }
+            .padding(.top, 10)
+        }
 
         // 2차원 배열의 행과 열 인덱스 확인하기
-        Text("총 \(grapeViewModel.totalItemCount)개의 항목이 있습니다.")
+//        Text("총 \(grapeViewModel.totalItemCount)개의 항목이 있습니다.")
 
     } // body }
 }   // View }

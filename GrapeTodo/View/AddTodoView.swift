@@ -9,38 +9,21 @@ import SwiftUI
 import SwiftData
 
 struct AddTodoView: View {
-<<<<<<< Updated upstream
-    
-    @Environment(\.modelContext)
-    private var context
-    
-    @Environment(\.dismiss)
-    var dismiss
-    
-    @State
-    private var todoName: String = ""
-    
-    @State
-    private var todoColor = SelectColor.red
-    
-=======
-
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
 
-    @EnvironmentObject var grapeViewModel: GrapeViewModel
+    @EnvironmentObject var grapeViewModel: GrapeViewModel // EnvironmentObject 공유된 객체를 쓴다.
     @State private var todoName: String = ""
     @State private var todoColor = SelectColor.checked
     @State private var priority = 0
 
->>>>>>> Stashed changes
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section {
                         TextField("할일 내용 적기", text: $todoName)
-                        PriorityColorPicker(selectedColor: $todoColor)
+//                        PriorityColorPicker(selectedColor: $todoColor)
                     }
                 }
             }
