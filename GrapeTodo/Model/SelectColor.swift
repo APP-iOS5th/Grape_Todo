@@ -20,7 +20,7 @@ extension Color {
 
 enum SelectColor: String, CaseIterable {
     case unchecked, checked
-    
+
     var representable: Color {
         switch self {
         case .unchecked: Color(Color(hex: "#F4F4F4"))

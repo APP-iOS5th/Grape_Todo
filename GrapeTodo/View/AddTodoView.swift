@@ -9,21 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct AddTodoView: View {
-    
-    @Environment(\.modelContext)
-    private var context
-    
-    @Environment(\.dismiss)
-    var dismiss
-    
-    @State
-    private var todoName: String = ""
-    
-    @State
-    private var todoColor = SelectColor.checked
-    
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
+
+    @EnvironmentObject var grapeViewModel: GrapeViewModel // EnvironmentObject 공유된 객체를 쓴다.
+    @State private var todoName: String = ""
+    @State private var todoColor = SelectColor.checked
     @State private var priority = 0
-    
+   
+
     var body: some View {
         NavigationView {
             VStack {
@@ -58,22 +52,17 @@ struct AddTodoView: View {
             }
         }
     }
-    
+
     private func save() {
         guard todoName.isEmpty == false else { return }
-        
+
         let newTodo = Todo(
             content: todoName,
             color: todoColor
         )
-        context.insert(newTodo)
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
+        grapeViewModel.addGrapes()
+        modelContext.insert(newTodo)
+
         dismiss()
     }
 }
