@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct FixTodoView: View {
+    // 기존에 작성된 todo의 데이터를 가져오기위한 변수 선언
     @Binding var todo: Todo
     
     @Environment(\.modelContext)
@@ -23,6 +24,7 @@ struct FixTodoView: View {
     //    @State
     //    private var todoColor: SelectColor
     
+    // todo 변수에 기존에 작성된 데이터를 연결시켜주는 생성자
     init(todo: Binding<Todo>) {
         self._todo = todo
         self._todoName = State(initialValue: todo.wrappedValue.content)

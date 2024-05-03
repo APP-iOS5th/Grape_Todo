@@ -35,6 +35,7 @@ struct TodoView: View {
                 Text(todo.content)
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
+                // todo 내용을 수정하는 화면으로 이동하게끔 경로 변경
                 Button(action: {showingFixTodo = true}) {
                     Image(systemName: "greaterthan")
 //                        .foregroundColor(todoColor.representable)
