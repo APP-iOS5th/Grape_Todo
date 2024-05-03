@@ -17,7 +17,7 @@ struct ContentView: View {
 
     @StateObject var grapeViewModel: GrapeViewModel
     @State var showingAddTodo = false
-//    @State var completedCount : Int = 5
+    //    @State var completedCount : Int = 5
     @State private var date = Date()
 
     private let dateFormatter: DateFormatter = {
@@ -27,59 +27,67 @@ struct ContentView: View {
     }()
 
     var body: some View {
-//        GrapeView(grapeViewModel: GrapeViewModel()).environmentObject(grapeViewModel)
-        NavigationStack {
+        TabView {
+            NavigationStack {
+                GeometryReader{ geometry in
+                    VStack(spacing: 0){
 
-            GeometryReader{ geometry in
-                VStack(spacing: 0){
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color(hex: "#D7DDDA"))
+                                .frame(width: geometry.size.width * (8/9), height: geometry.size.height * (3/7))
+                                .cornerRadius(25)
 
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color(hex: "#D7DDDA"))
-                            .frame(width: geometry.size.width * (8/9), height: geometry.size.height * (3/7))
-                            .cornerRadius(25)
+                            // 여기다 포도알 그려주면 됨, 임시 포도알 생성(위치확인용)
 
-                        // 여기다 포도알 그려주면 됨, 임시 포도알 생성(위치확인용)
-
-                        GrapeView().environmentObject(grapeViewModel)
-//                        Text("하이")
-//                        Text("\(todos.count)")  // todo 배열의 개수 확인용
+                            GrapeView().environmentObject(grapeViewModel)
+                            //                        Text("하이")
+                            //                        Text("\(todos.count)")  // todo 배열의 개수 확인용
 
 
-                        GeometryReader { geometry in
-                            Text("\(date, formatter: dateFormatter)")
-                                .frame(width: geometry.size.width * 0.47, height: geometry.size.height * 0.33)
-                                .font(.system(size: 20))
-                                .foregroundStyle(Color.black)
+                            GeometryReader { geometry in
+                                Text("\(date, formatter: dateFormatter)")
+                                    .frame(width: geometry.size.width * 0.47, height: geometry.size.height * 0.33)
+                                    .font(.system(size: 20))
+                                    .foregroundStyle(Color.black)
 
-//                            GrapesForCompletedTodos(completedCount: grapeViewModel.completedCount, geometry: geometry)
+                                //                            GrapesForCompletedTodos(completedCount: grapeViewModel.completedCount, geometry: geometry)
+                            }
                         }
+
+                        ListView
+                            .onAppear {
+                                grapeViewModel.completedCount = counter()
+                            }
+                            .navigationTitle("Todo")
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    ActionBar
+                                }
+                            }
+                            .sheet(isPresented: $showingAddTodo) {
+                                AddTodoView()
+                                    .environmentObject(grapeViewModel)
+                            }
+                            .overlay {
+                                if todos.isEmpty {
+                                    EmptyView.background()
+                                }
+                            }
                     }
 
-                    ListView
-                        .onAppear {
-                            grapeViewModel.completedCount = counter()
-                        }
-                        .navigationTitle("Todo")
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                ActionBar
-                            }
-                        }
-                        .sheet(isPresented: $showingAddTodo) {
-                            AddTodoView()
-                                .environmentObject(grapeViewModel)
-                        }
-                        .overlay {
-                            if todos.isEmpty {
-                                EmptyView.background()
-                            }
-                        }
-                        .frame(height: geometry.size.height * (1/2))
-                    Text("카운터: \(grapeViewModel.completedCount)")
                 }
 
-            }.tint(.orange)
+            }
+            .tabItem {
+                Image(systemName: "checkmark.circle")
+                Text("TODO")
+            }
+            AchievementView()
+            .tabItem {
+                Image(systemName: "calendar.badge.checkmark").foregroundColor(.black)
+                Text("Achivement")
+            }
         }
     }  // GeometryReader 괄호
 
@@ -141,18 +149,18 @@ struct ContentView: View {
             modelContext.delete(todo)
         }
     }
-    
+
 }
 
 struct GrapesForCompletedTodos: View {
     var completedCount : Int
     var geometry: GeometryProxy
-    
+
     init(completedCount: Int, geometry: GeometryProxy) {
-            self.completedCount = completedCount
-            self.geometry = geometry
-        }
-    
+        self.completedCount = completedCount
+        self.geometry = geometry
+    }
+
     var body: some View {
         GeometryReader { geometry in
             if completedCount >= 16 && completedCount <= 30 {
@@ -185,8 +193,8 @@ struct GrapesForCompletedTodos: View {
         }
     }
 }
-    
-//#Preview {
-//    ContentView()
-//        .modelContainer(for: Todo.self, inMemory: false)
-//}
+
+#Preview {
+    ContentView(grapeViewModel: GrapeViewModel())
+        .modelContainer(for: Todo.self, inMemory: false)
+}
