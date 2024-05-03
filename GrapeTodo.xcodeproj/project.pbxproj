@@ -9,22 +9,30 @@
 /* Begin PBXBuildFile section */
 		B88EC2242BE130920034CEC7 /* Podo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EC2232BE130920034CEC7 /* Podo.swift */; };
 		B88EC22A2BE32B640034CEC7 /* FixTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EC2292BE32B640034CEC7 /* FixTodoView.swift */; };
+		CAD096CF2BE390D50035EE9B /* GrapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096CE2BE390D50035EE9B /* GrapeView.swift */; };
+		CAD096D12BE391500035EE9B /* GrapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096D02BE391500035EE9B /* GrapeViewModel.swift */; };
+		CAD096D32BE3918C0035EE9B /* GrapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096D22BE3918C0035EE9B /* GrapeModel.swift */; };
+		04BAD74F2BE3D6B300EE12BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD74E2BE3D6B300EE12BF /* HomeView.swift */; };
+		04BAD7512BE3D8F200EE12BF /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAD7502BE3D8F200EE12BF /* AchievementView.swift */; };
 		F406E4FB2BDF261D00C6CF56 /* GrapeTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406E4FA2BDF261D00C6CF56 /* GrapeTodoApp.swift */; };
 		F406E4FD2BDF261D00C6CF56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406E4FC2BDF261D00C6CF56 /* ContentView.swift */; };
 		F406E4FF2BDF261E00C6CF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F406E4FE2BDF261E00C6CF56 /* Assets.xcassets */; };
 		F406E5022BDF261E00C6CF56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F406E5012BDF261E00C6CF56 /* Preview Assets.xcassets */; };
 		F4B0B0DA2BE082DA00C11D36 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0D92BE082DA00C11D36 /* Todo.swift */; };
 		F4B0B0DC2BE0832900C11D36 /* TodoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */; };
-		F4B0B0DE2BE0838D00C11D36 /* StatusIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */; };
 		F4B0B0E02BE086A100C11D36 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */; };
 		F4B0B0E22BE0C69C00C11D36 /* SelectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */; };
-		F4B0B0E42BE0D14F00C11D36 /* PriorityColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */; };
 		F4B0B0E72BE0D40800C11D36 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E62BE0D40800C11D36 /* TodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B88EC2232BE130920034CEC7 /* Podo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podo.swift; sourceTree = "<group>"; };
 		B88EC2292BE32B640034CEC7 /* FixTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixTodoView.swift; sourceTree = "<group>"; };
+		CAD096CE2BE390D50035EE9B /* GrapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeView.swift; sourceTree = "<group>"; };
+		CAD096D02BE391500035EE9B /* GrapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeViewModel.swift; sourceTree = "<group>"; };
+		CAD096D22BE3918C0035EE9B /* GrapeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeModel.swift; sourceTree = "<group>"; };
+		04BAD74E2BE3D6B300EE12BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		04BAD7502BE3D8F200EE12BF /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
 		F406E4F72BDF261D00C6CF56 /* GrapeTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrapeTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F406E4FA2BDF261D00C6CF56 /* GrapeTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeTodoApp.swift; sourceTree = "<group>"; };
 		F406E4FC2BDF261D00C6CF56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,10 +40,8 @@
 		F406E5012BDF261E00C6CF56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4B0B0D92BE082DA00C11D36 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailView.swift; sourceTree = "<group>"; };
-		F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusIndicator.swift; sourceTree = "<group>"; };
 		F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColor.swift; sourceTree = "<group>"; };
-		F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityColorPicker.swift; sourceTree = "<group>"; };
 		F4B0B0E62BE0D40800C11D36 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAD096C52BE37F5C0035EE9B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAD096D02BE391500035EE9B /* GrapeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F406E4EE2BDF261D00C6CF56 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +85,7 @@
 			children = (
 				F4B0B0E52BE0D33700C11D36 /* App */,
 				F4B0B0D82BE082A000C11D36 /* Model */,
+				CAD096C52BE37F5C0035EE9B /* ViewModel */,
 				F4B0B0D72BE0829500C11D36 /* View */,
 				F406E5002BDF261E00C6CF56 /* Preview Content */,
 			);
@@ -88,13 +103,15 @@
 		F4B0B0D72BE0829500C11D36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04BAD74E2BE3D6B300EE12BF /* HomeView.swift */,
 				F406E4FC2BDF261D00C6CF56 /* ContentView.swift */,
 				F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */,
 				B88EC2292BE32B640034CEC7 /* FixTodoView.swift */,
 				F4B0B0E62BE0D40800C11D36 /* TodoView.swift */,
+				F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */,
 				F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */,
-				F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */,
-				F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */,
+				CAD096CE2BE390D50035EE9B /* GrapeView.swift */,
+				04BAD7502BE3D8F200EE12BF /* AchievementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +122,7 @@
 				F4B0B0D92BE082DA00C11D36 /* Todo.swift */,
 				F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */,
 				B88EC2232BE130920034CEC7 /* Podo.swift */,
+				CAD096D22BE3918C0035EE9B /* GrapeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,13 +210,19 @@
 				F4B0B0DE2BE0838D00C11D36 /* StatusIndicator.swift in Sources */,
 				F406E4FD2BDF261D00C6CF56 /* ContentView.swift in Sources */,
 				F4B0B0E02BE086A100C11D36 /* AddTodoView.swift in Sources */,
-				F4B0B0E42BE0D14F00C11D36 /* PriorityColorPicker.swift in Sources */,
+				04BAD7512BE3D8F200EE12BF /* AchievementView.swift in Sources */,
+				F406E4FD2BDF261D00C6CF56 /* ContentView.swift in Sources */,
+				F4B0B0E02BE086A100C11D36 /* AddTodoView.swift in Sources */,
+				04BAD74F2BE3D6B300EE12BF /* HomeView.swift in Sources */,
 				F4B0B0DA2BE082DA00C11D36 /* Todo.swift in Sources */,
 				B88EC2242BE130920034CEC7 /* Podo.swift in Sources */,
 				F406E4FB2BDF261D00C6CF56 /* GrapeTodoApp.swift in Sources */,
+				CAD096CF2BE390D50035EE9B /* GrapeView.swift in Sources */,
+				CAD096D12BE391500035EE9B /* GrapeViewModel.swift in Sources */,
 				F4B0B0E72BE0D40800C11D36 /* TodoView.swift in Sources */,
 				F4B0B0E22BE0C69C00C11D36 /* SelectColor.swift in Sources */,
 				F4B0B0DC2BE0832900C11D36 /* TodoDetailView.swift in Sources */,
+				CAD096D32BE3918C0035EE9B /* GrapeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MUSTODO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -314,6 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MUSTODO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
