@@ -13,17 +13,48 @@ struct AchievementView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     Spacer()
-                    ForEach(0..<5) { index in
-                        ZStack {
-                            AchievementRectangle()
-                            Text("Achievement \(index + 1)")
-                                .foregroundColor(.black)
-                                .font(.headline)
-                                .padding()
+                    ZStack {
+                        AchievementRectangle()
+                        Text("지금까지 해낸 일")
+                    }
+                    ZStack {
+                        AchievementRectangle()
+                        HStack{
+                            Image("podoal16+")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 80.0, alignment: .leading)
+                            VStack {
+                                Text("루틴")
+                                    .foregroundColor(.black)
+                                    .font(.headline)
+                                    .padding(5)
+                                Text("3")
+                                    .font(.title)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            }
+                            VStack {
+                                Text("투 두")
+                                    .foregroundColor(.black)
+                                    .font(.headline)
+                                    .padding(5)
+                                Text("8")
+                                    .font(.title)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            }
+                            VStack {
+                                Text("달성률")
+                                    .foregroundColor(.black)
+                                    .font(.headline)
+                                    .padding(5)
+                                Text("56%")
+                                    .font(.title)
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            }
                         }
                     }
                 }
-                .navigationTitle("Achievement")
+                .navigationTitle("Achivement")
             }
             .background(Color(hex: "#F2F2F7"))
         }

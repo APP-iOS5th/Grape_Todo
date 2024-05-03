@@ -22,11 +22,8 @@ struct TodoDetailView: View {
             Text(formatDate(todo.createdAt))
                 .font(.subheadline)
                 .foregroundColor(.gray)
-            //                StatusIndicator(status: todo.status)
-            //                StatusIndicator(priority: todo.priority)
         }
         .padding()
-//        .navigationTitle("Todo Details")
     }
     
     private func formatDate(_ date: Date) -> String {

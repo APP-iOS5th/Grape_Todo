@@ -18,10 +18,6 @@ struct TodoView: View {
         self.todo = todo
     }
     
-    //    private var todoColor: SelectColor {
-    //        SelectColor(rawValue: todo.color) ?? .orange
-    //    }
-    
     @State
     var showingTodoDetail = false
     
