@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct AddTodoView: View {
+<<<<<<< Updated upstream
     
     @Environment(\.modelContext)
     private var context
@@ -22,6 +23,17 @@ struct AddTodoView: View {
     @State
     private var todoColor = SelectColor.red
     
+=======
+
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) var dismiss
+
+    @EnvironmentObject var grapeViewModel: GrapeViewModel
+    @State private var todoName: String = ""
+    @State private var todoColor = SelectColor.checked
+    @State private var priority = 0
+
+>>>>>>> Stashed changes
     var body: some View {
         NavigationView {
             VStack {
@@ -54,22 +66,17 @@ struct AddTodoView: View {
             .tint(.orange)
         }
     }
-    
+
     private func save() {
         guard todoName.isEmpty == false else { return }
-        
+
         let newTodo = Todo(
             content: todoName,
             color: todoColor
         )
-        context.insert(newTodo)
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
+        grapeViewModel.addGrapes()
+        modelContext.insert(newTodo)
+
         dismiss()
     }
 }

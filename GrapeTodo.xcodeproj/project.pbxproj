@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAD096CF2BE390D50035EE9B /* GrapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096CE2BE390D50035EE9B /* GrapeView.swift */; };
+		CAD096D12BE391500035EE9B /* GrapeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096D02BE391500035EE9B /* GrapeViewModel.swift */; };
+		CAD096D32BE3918C0035EE9B /* GrapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD096D22BE3918C0035EE9B /* GrapeModel.swift */; };
 		F406E4FB2BDF261D00C6CF56 /* GrapeTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406E4FA2BDF261D00C6CF56 /* GrapeTodoApp.swift */; };
 		F406E4FD2BDF261D00C6CF56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406E4FC2BDF261D00C6CF56 /* ContentView.swift */; };
 		F406E4FF2BDF261E00C6CF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F406E4FE2BDF261E00C6CF56 /* Assets.xcassets */; };
 		F406E5022BDF261E00C6CF56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F406E5012BDF261E00C6CF56 /* Preview Assets.xcassets */; };
 		F4B0B0DA2BE082DA00C11D36 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0D92BE082DA00C11D36 /* Todo.swift */; };
 		F4B0B0DC2BE0832900C11D36 /* TodoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */; };
-		F4B0B0DE2BE0838D00C11D36 /* StatusIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */; };
 		F4B0B0E02BE086A100C11D36 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */; };
 		F4B0B0E22BE0C69C00C11D36 /* SelectColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */; };
-		F4B0B0E42BE0D14F00C11D36 /* PriorityColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */; };
 		F4B0B0E72BE0D40800C11D36 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0B0E62BE0D40800C11D36 /* TodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CAD096CE2BE390D50035EE9B /* GrapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeView.swift; sourceTree = "<group>"; };
+		CAD096D02BE391500035EE9B /* GrapeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeViewModel.swift; sourceTree = "<group>"; };
+		CAD096D22BE3918C0035EE9B /* GrapeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeModel.swift; sourceTree = "<group>"; };
 		F406E4F72BDF261D00C6CF56 /* GrapeTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrapeTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F406E4FA2BDF261D00C6CF56 /* GrapeTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrapeTodoApp.swift; sourceTree = "<group>"; };
 		F406E4FC2BDF261D00C6CF56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,10 +32,8 @@
 		F406E5012BDF261E00C6CF56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4B0B0D92BE082DA00C11D36 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailView.swift; sourceTree = "<group>"; };
-		F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusIndicator.swift; sourceTree = "<group>"; };
 		F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColor.swift; sourceTree = "<group>"; };
-		F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityColorPicker.swift; sourceTree = "<group>"; };
 		F4B0B0E62BE0D40800C11D36 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAD096C52BE37F5C0035EE9B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAD096D02BE391500035EE9B /* GrapeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F406E4EE2BDF261D00C6CF56 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 			children = (
 				F4B0B0E52BE0D33700C11D36 /* App */,
 				F4B0B0D82BE082A000C11D36 /* Model */,
+				CAD096C52BE37F5C0035EE9B /* ViewModel */,
 				F4B0B0D72BE0829500C11D36 /* View */,
 				F406E5002BDF261E00C6CF56 /* Preview Content */,
 			);
@@ -88,8 +99,7 @@
 				F4B0B0DF2BE086A100C11D36 /* AddTodoView.swift */,
 				F4B0B0E62BE0D40800C11D36 /* TodoView.swift */,
 				F4B0B0DB2BE0832900C11D36 /* TodoDetailView.swift */,
-				F4B0B0DD2BE0838D00C11D36 /* StatusIndicator.swift */,
-				F4B0B0E32BE0D14F00C11D36 /* PriorityColorPicker.swift */,
+				CAD096CE2BE390D50035EE9B /* GrapeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +109,7 @@
 			children = (
 				F4B0B0D92BE082DA00C11D36 /* Todo.swift */,
 				F4B0B0E12BE0C69B00C11D36 /* SelectColor.swift */,
+				CAD096D22BE3918C0035EE9B /* GrapeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,15 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4B0B0DE2BE0838D00C11D36 /* StatusIndicator.swift in Sources */,
 				F406E4FD2BDF261D00C6CF56 /* ContentView.swift in Sources */,
 				F4B0B0E02BE086A100C11D36 /* AddTodoView.swift in Sources */,
-				F4B0B0E42BE0D14F00C11D36 /* PriorityColorPicker.swift in Sources */,
 				F4B0B0DA2BE082DA00C11D36 /* Todo.swift in Sources */,
 				F406E4FB2BDF261D00C6CF56 /* GrapeTodoApp.swift in Sources */,
+				CAD096CF2BE390D50035EE9B /* GrapeView.swift in Sources */,
+				CAD096D12BE391500035EE9B /* GrapeViewModel.swift in Sources */,
 				F4B0B0E72BE0D40800C11D36 /* TodoView.swift in Sources */,
 				F4B0B0E22BE0C69C00C11D36 /* SelectColor.swift in Sources */,
 				F4B0B0DC2BE0832900C11D36 /* TodoDetailView.swift in Sources */,
+				CAD096D32BE3918C0035EE9B /* GrapeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

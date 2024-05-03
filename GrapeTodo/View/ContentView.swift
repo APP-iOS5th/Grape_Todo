@@ -8,7 +8,9 @@
 import SwiftUI
 import SwiftData
 
+
 struct ContentView: View {
+<<<<<<< Updated upstream
     @Environment(\.modelContext)
     private var context
     
@@ -18,12 +20,58 @@ struct ContentView: View {
     @State
     var showingAddTodo = false
     
+=======
+    // SwiftData는 UI의 상태 변경 시 또는 특정 기간이 지난 후 컨텍스트를 스토어에 자동 저장한다. 하지만 원한다면 save()를 자유롭게 호출할 수 있다.
+    @Environment(\.modelContext) private var modelContext // modelContext 객체를 이용하면 swiftData에서 제공하는 삽입,수정, 삭제 기능을 사용할 수 있음.
+    @Query(sort: \Todo.createdAt, animation: .smooth) private var todos: [Todo]
+
+    @StateObject var grapeViewModel: GrapeViewModel
+    @State var showingAddTodo = false
+    @State var completedCount : Int = 31
+    @State private var date = Date()
+
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter
+    }()
+
+>>>>>>> Stashed changes
     var body: some View {
+        GrapeView(grapeViewModel: GrapeViewModel()).environmentObject(grapeViewModel)
         NavigationStack {
+<<<<<<< Updated upstream
             GeometryReader{ geo in
                 VStack{
                     Image(systemName: "trash").backgroundStyle(Color.red)
                         .frame(height: geo.size.height * (1/3))
+=======
+
+            GeometryReader{ geometry in
+                VStack(spacing: 0){
+
+//                    ZStack {
+//                        Rectangle()
+//                            .foregroundColor(Color(hex: "#D7DDDA"))
+//                            .frame(width: geometry.size.width * (8/9), height: geometry.size.height * (3/7))
+//                            .cornerRadius(25)
+                        
+                        // 여기다 포도알 그려주면 됨, 임시 포도알 생성(위치확인용)
+
+//                        GrapeView(grapeViewModel: GrapeViewModel()).environmentObject(grapeViewModel)
+
+
+                        GeometryReader { geometry in
+                            Text("\(date, formatter: dateFormatter)")
+                                .frame(width: geometry.size.width * 0.47, height: geometry.size.height * 0.33)
+                                .font(.system(size: 20))
+                                .foregroundStyle(Color.black)
+
+                            GrapesForCompletedTodos(completedCount: completedCount, geometry: geometry)
+                        }
+                    }
+                    
+>>>>>>> Stashed changes
                     ListView
                         .navigationTitle("Todo")
                         .toolbar {
@@ -33,19 +81,24 @@ struct ContentView: View {
                         }
                         .sheet(isPresented: $showingAddTodo) {
                             AddTodoView()
+                                .environmentObject(grapeViewModel)
                         }
                         .overlay {
                             if todos.isEmpty {
                                 EmptyView.background(Color.red)
                             }
                         }
+<<<<<<< Updated upstream
                         .frame(height: geo.size.height * (2/3))
+=======
+                        .frame(height: geometry.size.height * (1/2))
+>>>>>>> Stashed changes
                 }
                 
             }.tint(.orange)
         }
-    }
-    
+//    } GeometryReader 괄호
+
     @ViewBuilder
     private var ListView: some View {
         List {
@@ -72,6 +125,7 @@ struct ContentView: View {
         }
     }
     
+    // Todo 목록이 하나도 없을때 해당 View가 나옴
     @ViewBuilder
     private var EmptyView: some View {
         ContentUnavailableView {
@@ -85,14 +139,14 @@ struct ContentView: View {
     private func delete(indices: IndexSet) {
         for index in indices {
             let todo = todos[index]
-            context.delete(todo)
+            modelContext.delete(todo)
         }
         
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+//        do {
+//            try modelContext.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
     }
 }
 
@@ -166,3 +220,11 @@ struct ContentView: View {
 #Preview {
     ContentView().modelContainer(for: Todo.self, inMemory: false)
 }
+<<<<<<< Updated upstream
+=======
+    
+    #Preview {
+        ContentView(grapeViewModel: GrapeViewModel())
+            .modelContainer(for: Todo.self, inMemory: false)
+    }
+>>>>>>> Stashed changes
