@@ -192,6 +192,17 @@ struct GrapesForCompletedTodos: View {
             }
         }
     }
+    
+//    // 완료된 todo의 개수를 확인해주는 함수
+//    private func counter() -> Int {
+//        var countComplete = 0
+//        for todo in todos {
+//            if todo.completed == true {
+//                countComplete += 1
+//            }
+//        }
+//        return countComplete
+//    }
 }
 
 #Preview {

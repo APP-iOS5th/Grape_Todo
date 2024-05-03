@@ -36,12 +36,14 @@ final class Todo {
     var createdAt: Date
     var completed: Bool
     var color: String
+    var priority: Int
 
-    init(content: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor) {
+    init(content: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor, priority: Int) {
         self.id = UUID()
         self.content = content
         self.createdAt = createdAt
         self.completed = completed
         self.color = color.rawValue
+        self.priority = priority
     }
 }

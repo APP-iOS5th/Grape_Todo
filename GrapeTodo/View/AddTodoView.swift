@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct AddTodoView: View {
+
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
 
@@ -20,15 +21,9 @@ struct AddTodoView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Picker(selection: $selectedPriority, label: Text("우선순위 선택")) {
-                              ForEach(Priority.allCases) { priority in
-                                  Text(priority.description).tag(priority)
-                              }
-                          }
-                          .pickerStyle(SegmentedPickerStyle())
-                          .padding()
                 Form {
                     Section {
+
                         TextField("할 일을 입력하세요.", text: $todoName)
                     }
                     Picker(selection: $priority, label: Text("중요도")) {
@@ -65,7 +60,7 @@ struct AddTodoView: View {
         let newTodo = Todo(
             content: todoName,
             color: todoColor,
-            priority: selectedPriority
+            priority: priority
         )
         grapeViewModel.addGrapes()
         modelContext.insert(newTodo)
