@@ -12,7 +12,7 @@ import SwiftData
 struct GrapeModel {
     var id: Int
     var isCompleted: Bool
-
+    
     init(id: Int, isCompleted: Bool) {
         self.id = id
         self.isCompleted = isCompleted

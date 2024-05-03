@@ -10,14 +10,13 @@ import SwiftData
 
 @Model
 final class Todo {
-    @Attribute(.unique)
-    var id: UUID
-    
+    @Attribute(.unique) var id: UUID
+
     var content: String
     var createdAt: Date
     var completed: Bool
     var color: String
-    
+
     init(content: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor) {
         self.id = UUID()
         self.content = content

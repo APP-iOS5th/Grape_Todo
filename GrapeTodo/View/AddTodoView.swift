@@ -16,6 +16,7 @@ struct AddTodoView: View {
     @State private var todoName: String = ""
     @State private var todoColor = SelectColor.checked
     @State private var priority = 0
+   
 
     var body: some View {
         NavigationView {

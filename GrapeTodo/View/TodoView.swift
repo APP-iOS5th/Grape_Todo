@@ -9,8 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct TodoView: View {
-    @Environment(\.modelContext) private var modelContext
-
+//    @Environment(\.modelContext) private var modelContext
+    @State var showingTodoDetail = false
+    @EnvironmentObject var grapeViewModel: GrapeViewModel
 
     private var todo: Todo
     public init(todo: Todo) {
@@ -20,8 +21,6 @@ struct TodoView: View {
     //    private var todoColor: SelectColor {
     //        SelectColor(rawValue: todo.color) ?? .orange
     //    }
-
-    @State var showingTodoDetail = false
 
     var body: some View {
         NavigationStack{
@@ -33,6 +32,9 @@ struct TodoView: View {
                 }.buttonStyle(.borderless)
                 Text(todo.content)
                     .foregroundColor(todo.completed ? .secondary : .primary)
+//                Text("컴플리트 값: \(todo.completed)")
+//                Text("카운트 값: \(grapeViewModel.completedCount)")
+
                 Spacer()
                 Button(action: {showingTodoDetail = true}) {
                     //                    Text(todo.priotity?)
@@ -41,37 +43,33 @@ struct TodoView: View {
 
             }
         }
+        .onAppear() {
+
+        }
+
+        
     }
 
-    //    private func counter() -> Int {
-    //        var countComplete = 0
-    //        for todo in todos {
-    //            if todo.completed == true {
-    //                countComplete += 1
-    //            }
-    //        }
-    //        print(countComplete)
-    //        return countComplete
-    //    }
+        
 
     private func toggleCompleted() {
         todo.completed.toggle()
-        //        do {
-        //            try context.save()  // 내부데이터에 상태변경 저장때문에 쓰인 save()
-        //        } catch {
-        //            print(error.localizedDescription)
-        //        }
+        if todo.completed {
+            grapeViewModel.completedCount += 1
+        } else {
+            grapeViewModel.completedCount -= 1
+        }
     }
 }
 
-struct DameTodo {
-    var content: String
-    var color: SelectColor // 색상 추가
-
-    init(content: String, color: SelectColor) {
-        self.content = content
-        self.color = color
-    }
-}
+//struct DameTodo {
+//    var content: String
+//    var color: SelectColor // 색상 추가
+//
+//    init(content: String, color: SelectColor) {
+//        self.content = content
+//        self.color = color
+//    }
+//}
 
 

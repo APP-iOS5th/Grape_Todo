@@ -17,7 +17,7 @@ struct ContentView: View {
 
     @StateObject var grapeViewModel: GrapeViewModel
     @State var showingAddTodo = false
-    @State var completedCount : Int = 31
+//    @State var completedCount : Int = 5
     @State private var date = Date()
 
     private let dateFormatter: DateFormatter = {
@@ -42,6 +42,8 @@ struct ContentView: View {
                         // 여기다 포도알 그려주면 됨, 임시 포도알 생성(위치확인용)
 
                         GrapeView().environmentObject(grapeViewModel)
+//                        Text("하이")
+//                        Text("\(todos.count)")  // todo 배열의 개수 확인용
 
 
                         GeometryReader { geometry in
@@ -50,11 +52,14 @@ struct ContentView: View {
                                 .font(.system(size: 20))
                                 .foregroundStyle(Color.black)
 
-                            //                            GrapesForCompletedTodos(completedCount: completedCount, geometry: geometry)
+//                            GrapesForCompletedTodos(completedCount: grapeViewModel.completedCount, geometry: geometry)
                         }
                     }
 
                     ListView
+                        .onAppear {
+                            grapeViewModel.completedCount = counter()
+                        }
                         .navigationTitle("Todo")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
@@ -71,7 +76,7 @@ struct ContentView: View {
                             }
                         }
                         .frame(height: geometry.size.height * (1/2))
-
+                    Text("카운터: \(grapeViewModel.completedCount)")
                 }
 
             }.tint(.orange)
@@ -83,6 +88,7 @@ struct ContentView: View {
         List {
             ForEach(todos) { todo in
                 TodoView(todo: todo)
+                    .environmentObject(grapeViewModel)
             }
             .onDelete(perform: delete)
         }
@@ -114,18 +120,28 @@ struct ContentView: View {
         }
     }
 
+    private func counter() -> Int {
+        var countComplete = 0
+        for todo in todos {
+            if todo.completed == true {
+                countComplete += 1
+            }
+        }
+        print("countComplete: \(countComplete)")
+        return countComplete
+    }
+
     // MARK: Data operations
+    // 카운트만 뺄게 아니라 포도알 배열도 빼야함
     private func delete(indices: IndexSet) {
         for index in indices {
             let todo = todos[index]
+            if todo.completed {
+                grapeViewModel.completedCount -= 1
+            }
+            grapeViewModel.deleteGrapes()
             modelContext.delete(todo)
         }
-
-        //        do {
-        //            try modelContext.save()
-        //        } catch {
-        //            print(error.localizedDescription)
-        //        }
     }
 }
 
