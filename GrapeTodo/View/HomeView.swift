@@ -11,7 +11,7 @@ struct HomeView: View {
     
     var body: some View {
         TabView {
-            ContentView()
+            ContentView(grapeViewModel: GrapeViewModel())
                 .tabItem {
                     Image(systemName: "checkmark.circle")
                     Text("TODO")
