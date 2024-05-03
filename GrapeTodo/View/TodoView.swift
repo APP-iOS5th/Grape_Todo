@@ -36,6 +36,8 @@ struct TodoView: View {
 //                Text("카운트 값: \(grapeViewModel.completedCount)")
 
                 Spacer()
+                Text("\(todo.priority)")
+                Spacer()
                 Button(action: {showingTodoDetail = true}) {
                     //                    Text(todo.priotity?)
                     Image(systemName: "chevron.right")

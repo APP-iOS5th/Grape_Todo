@@ -10,7 +10,7 @@ import SwiftData
 
 
 struct ContentView: View {
-
+  
     // SwiftData는 UI의 상태 변경 시 또는 특정 기간이 지난 후 컨텍스트를 스토어에 자동 저장한다. 하지만 원한다면 save()를 자유롭게 호출할 수 있다.
     @Environment(\.modelContext) private var modelContext // modelContext 객체를 이용하면 swiftData에서 제공하는 삽입,수정, 삭제 기능을 사용할 수 있음.
     @Query(sort: \Todo.createdAt, animation: .smooth) private var todos: [Todo]
@@ -25,7 +25,7 @@ struct ContentView: View {
         dateFormatter.dateFormat = "yyyy.MM.dd"
         return dateFormatter
     }()
-
+  
     var body: some View {
         TabView {
             NavigationStack {

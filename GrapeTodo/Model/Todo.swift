@@ -8,6 +8,26 @@
 import Foundation
 import SwiftData
 
+enum Priority: Int, Identifiable, CaseIterable {
+    case routine
+    case high
+    case low
+
+    var id: Self { self}
+       
+       var description: String {
+           switch self {
+           case .routine:
+               return "routine"
+           case .high:
+               return "high"
+           case .low:
+               return "low"
+           }
+       }
+    
+}
+
 @Model
 final class Todo {
     @Attribute(.unique) var id: UUID
@@ -25,11 +45,3 @@ final class Todo {
         self.color = color.rawValue
     }
 }
-
-enum Priority: Comparable, Codable {
-    case routine
-    case high
-    case medium
-    case low
-}
-

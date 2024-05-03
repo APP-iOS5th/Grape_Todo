@@ -17,10 +17,16 @@ struct AddTodoView: View {
     @State private var todoColor = SelectColor.checked
     @State private var priority = 0
    
-
     var body: some View {
         NavigationView {
             VStack {
+                Picker(selection: $selectedPriority, label: Text("우선순위 선택")) {
+                              ForEach(Priority.allCases) { priority in
+                                  Text(priority.description).tag(priority)
+                              }
+                          }
+                          .pickerStyle(SegmentedPickerStyle())
+                          .padding()
                 Form {
                     Section {
                         TextField("할 일을 입력하세요.", text: $todoName)
@@ -58,7 +64,8 @@ struct AddTodoView: View {
 
         let newTodo = Todo(
             content: todoName,
-            color: todoColor
+            color: todoColor,
+            priority: selectedPriority
         )
         grapeViewModel.addGrapes()
         modelContext.insert(newTodo)
