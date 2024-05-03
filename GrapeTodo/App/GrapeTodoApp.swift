@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct GrapeTodoApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(grapeViewModel: GrapeViewModel())
         }
-        .modelContainer(for: Todo.self)
+        .modelContainer(for: Todo.self)     // 모델을 연결하려고 씀
     }
 }
