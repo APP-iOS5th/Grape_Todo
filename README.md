@@ -5,9 +5,16 @@
 ## ⏲️ 개발 기간 
 - 2024.04.30(화) ~ 2023.05.03(금)
   
+
+## 🧑‍🤝‍🧑 개발자 소개
+
+- **윤창현** : 
+- <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/164470982/ab56cc15-6fe5-44f7-a022-2ec3b600c34c" width="150" height="150"/>**조아라** : 딜러지만 자폭가능합니다 
+
 ## 🧑‍🤝‍🧑 개발자 소개 
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/39834903/8502313f-0fb0-4d0e-9489-11ef2cae417e" width="150" height="150"/>**윤창현** : 탱커를 맡고 있습니다."레킹볼 온라인" 
 - **조아라** : 
+
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/79854784/77f8d60b-d11e-43cf-bf0e-33c734d62b45" width="150" height="150"/>**윤종찬** : 서브딜러를 맡고 있습니다. "한조 대기중"
 - **권도율** : 
 - **김승원** : 
