@@ -22,7 +22,7 @@ struct FixTodoView: View {
     var dismiss
     
     @State
-    private var todoName: String
+    private var todoTitle: String
     
     @State
     private var todoDetail: String
@@ -34,7 +34,7 @@ struct FixTodoView: View {
     // todo 변수에 기존에 작성된 데이터를 연결시켜주는 생성자
     init(todo: Binding<Todo>) {
         self._todo = todo
-        self._todoName = State(initialValue: todo.wrappedValue.content)
+        self._todoTitle = State(initialValue: todo.wrappedValue.title)
         self._todoDetail = State(initialValue: todo.wrappedValue.detail)
         if let priority = Priority(rawValue: todo.wrappedValue.priority) {
             self._todoPriority = State(initialValue: priority)
@@ -46,7 +46,7 @@ struct FixTodoView: View {
             VStack {
                 Form {
                     Section {
-                        TextField("", text: $todoName)
+                        TextField("", text: $todoTitle)
                         TextEditor(text: $todoDetail)
                     }
                     Picker(selection: $todoPriority, label: Text("우선순위 선택")) {
@@ -79,11 +79,11 @@ struct FixTodoView: View {
     }
     
     private func save() {
-        guard !todoName.isEmpty else { return }
+        guard !todoTitle.isEmpty else { return }
         
         // Update the todo object with the new values
         let fixTodo = Todo(
-            content: todoName,
+            title: todoTitle,
             detail: todoDetail,
             completed: todo.completed,
             color: SelectColor(rawValue: todo.color)!,

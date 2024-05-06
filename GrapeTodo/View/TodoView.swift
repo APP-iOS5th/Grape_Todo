@@ -27,7 +27,7 @@ struct TodoView: View {
                         .fill(todo.completed ? Color(hex: "#BAF7AD") : Color(hex: "#F4F4F4"))
                         .frame(width : 20)
                 }.buttonStyle(.borderless)
-                Text(todo.content)
+                Text(todo.title)
                     .foregroundColor(todo.completed ? .secondary : .primary)
                 Spacer()
                 Button(action: {showingFixTodo = true}) {

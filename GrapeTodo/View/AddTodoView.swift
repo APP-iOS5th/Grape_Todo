@@ -83,7 +83,7 @@ struct AddTodoView: View {
         guard todoName.isEmpty == false else { return }
         
         let newTodo = Todo(
-            content: todoName,
+            title: todoName,
             detail: todoDetail,
             color: todoColor,
             priority: todoPriority

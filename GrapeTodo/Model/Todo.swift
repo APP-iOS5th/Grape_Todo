@@ -31,16 +31,16 @@ enum Priority: Int, Identifiable, CaseIterable {
 final class Todo {
     @Attribute(.unique) var id: UUID
     
-    var content: String
+    var title: String
     var detail: String
     var createdAt: Date
     var completed: Bool
     var color: String
     var priority: Int
     
-    init(content: String, detail: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor, priority: Priority) {
+    init(title: String, detail: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor, priority: Priority) {
         self.id = UUID()
-        self.content = content
+        self.title = title
         self.detail = detail
         self.createdAt = createdAt
         self.completed = completed
