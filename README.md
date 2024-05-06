@@ -17,7 +17,7 @@
 - **Xcode** : 15.3 (15E204a)
 - **iOS** : 17.4
 
-## 📝 프로젝트 아키텍쳐
+## 📝 프로젝트 Wireframes
 ![MUSTODO_Design](https://github.com/APP-iOS5th/Grape_Todo/assets/39834903/a8680c04-9fdc-4b0c-b30b-8d6cdbaffb87)
 
 ## 📌 주요 기능
