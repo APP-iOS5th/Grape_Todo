@@ -10,13 +10,21 @@ import SwiftData
 
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Todo.createdAt, animation: .smooth) private var todos: [Todo]
+    
+    @Environment(\.modelContext)
+    private var modelContext
+    
+    @Query(sort: \Todo.priority, animation: .smooth)
+    private var todos: [Todo]
 
-    @StateObject var grapeViewModel = GrapeViewModel()
+    @StateObject
+    var grapeViewModel = GrapeViewModel()
 
-    @State var showingAddTodo = false
-    @State private var date = Date()
+    @State
+    var showingAddTodo = false
+    
+    @State
+    private var date = Date()
 
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

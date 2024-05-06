@@ -9,8 +9,12 @@ import SwiftUI
 import SwiftData
 
 class GrapeViewModel: ObservableObject {
-    @Published var grapes: [[Grape]] = []
-    @Published var completedCount: Int = 0
+    
+    @Published
+    var grapes: [[Grape]] = []
+    
+    @Published
+    var completedCount: Int = 0
 
     var currentId: Int = 1
     var totalGrapesCount: Int {
