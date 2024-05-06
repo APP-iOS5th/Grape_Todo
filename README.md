@@ -11,17 +11,14 @@
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/79854784/77f8d60b-d11e-43cf-bf0e-33c734d62b45" width="150" height="150"/>**윤종찬** : 서브딜러를 맡고 있습니다. "한조 대기중"
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/164737302/e6aee686-4aaf-41d9-92d8-69fe3ebe2bee" width="150" height="150"/>**권도율** : 힐러를 맡고 있습니다. 
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/51118647/af52830c-1c73-4f5e-9231-789b4da9f2a1" width="150" height="150"/>**김승원** : 힐러를 맡고 있습니다. "쉿"
-  
-![개발자 소개]()
 
 ## 💻 개발환경
 - **MacOS** : 14.4.1(23E224)
 - **Xcode** : 15.3 (15E204a)
 - **iOS** : 17.4
 
-
 ## 📝 프로젝트 아키텍쳐
-![프로젝트 아키텍쳐]()
+![MUSTODO_Design](https://github.com/APP-iOS5th/Grape_Todo/assets/39834903/a8680c04-9fdc-4b0c-b30b-8d6cdbaffb87)
 
 ## 📌 주요 기능
 - 투 두 등록 :
