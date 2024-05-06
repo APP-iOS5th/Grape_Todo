@@ -16,7 +16,7 @@
 - **조아라** : 
 
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/79854784/77f8d60b-d11e-43cf-bf0e-33c734d62b45" width="150" height="150"/>**윤종찬** : 서브딜러를 맡고 있습니다. "한조 대기중"
-- **권도율** : 
+- <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/164737302/e6aee686-4aaf-41d9-92d8-69fe3ebe2bee" width="150" height="150"/>**권도율** : 힐러를 맡고 있습니다. 
 - **김승원** : 
   
 ![개발자 소개]()
