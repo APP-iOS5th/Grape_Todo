@@ -10,8 +10,10 @@ import SwiftUI
 import SwiftData
 
 struct FixTodoView: View {
+    
     // 기존에 작성된 todo의 데이터를 가져오기위한 변수 선언
-    @Binding var todo: Todo
+    @Binding
+    var todo: Todo
 
     @Environment(\.modelContext)
     private var context

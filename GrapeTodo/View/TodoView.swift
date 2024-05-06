@@ -2,12 +2,19 @@ import SwiftUI
 import SwiftData
 
 struct TodoView: View {
-    @State var showingFixTodo = false
+    
+    @State
+    var showingFixTodo = false
 
-    @State var showingTodoDetail = false
-    @EnvironmentObject var grapeViewModel: GrapeViewModel
+    @State
+    var showingTodoDetail = false
+    
+    @EnvironmentObject
+    var grapeViewModel: GrapeViewModel
 
-    @State private var todo: Todo
+    @State
+    private var todo: Todo
+    
     public init(todo: Todo) {
         self.todo = todo
     }

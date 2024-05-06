@@ -2,9 +2,15 @@ import SwiftUI
 import SwiftData
 
 struct GrapeView: View {
-    @EnvironmentObject var grapeViewModel: GrapeViewModel
-    @Query private var todos: [Todo]
-    @State private var isLoaded = false
+    
+    @EnvironmentObject
+    var grapeViewModel: GrapeViewModel
+    
+    @Query
+    private var todos: [Todo]
+    
+    @State
+    private var isLoaded = false
 
     var body: some View {
         ZStack {
