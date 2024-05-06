@@ -51,7 +51,7 @@ struct ContentView: View {
                                 Text("\(date, formatter: dateFormatter)")
                                     .frame(width: geometry.size.width * 0.47, height: geometry.size.height * 0.33)
                                     .font(.system(size: 20))
-                                    .foregroundStyle(Color.black)
+                                    .foregroundStyle(Color(hex: "#4C4C4C"))
 
                                 GrapesForCompletedTodos(completedCount: grapeViewModel.completedCount, geometry: geometry)
 
@@ -62,7 +62,7 @@ struct ContentView: View {
                             .onAppear {
                                 grapeViewModel.completedCount = counter()
                             }
-                            .navigationTitle("Todo")
+                            .navigationTitle("TODO")
                             .toolbar {
                                 ToolbarItem(placement: .navigationBarTrailing) {
                                     ActionBar
@@ -88,7 +88,7 @@ struct ContentView: View {
             AchievementView()
             .tabItem {
                 Image(systemName: "calendar.badge.checkmark").foregroundColor(.black)
-                Text("Achivement")
+                Text("Achievement")
             }
         }.accentColor(Color.green)
     }
