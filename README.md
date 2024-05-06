@@ -10,7 +10,7 @@
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/164470982/ab56cc15-6fe5-44f7-a022-2ec3b600c34c" width="150" height="150"/>**조아라** : 딜러지만 자폭가능합니다 
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/79854784/77f8d60b-d11e-43cf-bf0e-33c734d62b45" width="150" height="150"/>**윤종찬** : 서브딜러를 맡고 있습니다. "한조 대기중"
 - <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/164737302/e6aee686-4aaf-41d9-92d8-69fe3ebe2bee" width="150" height="150"/>**권도율** : 힐러를 맡고 있습니다. 
-- <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/51118647/af52830c-1c73-4f5e-9231-789b4da9f2a1" width="150" height="15"/>**김승원** : 힐러를 맡고 있습니다.
+- <img src="https://github.com/APP-iOS5th/Grape_Todo/assets/51118647/af52830c-1c73-4f5e-9231-789b4da9f2a1" width="150" height="150"/>**김승원** : 힐러를 맡고 있습니다.
   
 ![개발자 소개]()
 
