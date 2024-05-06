@@ -23,15 +23,20 @@ struct FixTodoView: View {
 
     @State
     private var todoName: String
+    
+    @State
+    private var todoDetail: String
+    
+    @State
+    private var todoPriority: Int
 
-    //    @State
-    //    private var todoColor: SelectColor
 
     // todo 변수에 기존에 작성된 데이터를 연결시켜주는 생성자
     init(todo: Binding<Todo>) {
         self._todo = todo
         self._todoName = State(initialValue: todo.wrappedValue.content)
-        //        self._todoColor = State(initialValue: SelectColor(rawValue: todo.wrappedValue.color) ?? .red)
+        self._todoDetail = State(initialValue: todo.wrappedValue.detail)
+        self._todoPriority = State(initialValue: todo.wrappedValue.priority)
     }
 
     var body: some View {
@@ -40,6 +45,12 @@ struct FixTodoView: View {
                 Form {
                     Section {
                         TextField("", text: $todoName)
+                        TextEditor(text: $todoDetail)
+                    }
+                    Picker(selection: $todoPriority, label: Text("우선순위 선택")) {
+                        ForEach(Priority.allCases) { priority in
+                            Text(priority.description).tag(priority)
+                        }
                     }
                 }
             }
@@ -70,7 +81,8 @@ struct FixTodoView: View {
 
         // Update the todo object with the new values
         todo.content = todoName
-        //        todo.color = todoColor.rawValue
+        todo.detail = todoDetail
+        todo.priority = todoPriority
 
         // Save the changes to CoreData
         do {

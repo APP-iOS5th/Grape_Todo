@@ -31,7 +31,7 @@ struct TodoView: View {
                     .foregroundColor(todo.completed ? .secondary : .primary)
 
                 Spacer()
-                Text("(todo.priority)")
+                Text("\(todo.priority)")
                 Spacer()
 
                 Button(action: {showingFixTodo = true}) {

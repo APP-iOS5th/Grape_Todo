@@ -23,10 +23,13 @@ struct AddTodoView: View {
     private var todoName: String = ""
     
     @State
+    private var todoDetail: String = ""
+    
+    @State
     private var todoColor = SelectColor.checked
     
     @State
-    private var selectedPriority: Priority = .routine
+    private var todoPriority: Priority = .routine
     
     var body: some View {
         NavigationView {
@@ -35,19 +38,24 @@ struct AddTodoView: View {
                     Section {
                         
                         TextField("할 일을 입력하세요.", text: $todoName)
+                        ZStack(alignment: .leading) {
+                            let placeHolder = "상세 내용을 입력하세요."
+                            
+                            TextEditor(text: $todoDetail)
+                            
+                            // 조건문으로 placeholder 표시해주기
+                            if todoDetail.isEmpty {
+                                Text(placeHolder)
+                                    .foregroundColor(Color.primary.opacity(0.25))
+                            }
+                        }
                     }
-                    Picker(selection: $selectedPriority, label: Text("우선순위 선택")) {
+                    Picker(selection: $todoPriority, label: Text("우선순위 선택")) {
                         ForEach(Priority.allCases) { priority in
                             Text(priority.description).tag(priority)
                         }
                     }
-                    .pickerStyle(DefaultPickerStyle())
-                    .padding()
-                    //                    Picker(selection: $priority, label: Text("중요도")) {
-                    //                        Text("Routine").tag(1)
-                    //                        Text("High").tag(2)
-                    //                        Text("Low").tag(3)
-                    //                    }.pickerStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Picker Style@*/DefaultPickerStyle()/*@END_MENU_TOKEN@*/)
+                    .pickerStyle(DefaultPickerStyle())     
                 }
             }
             .toolbar {
@@ -76,8 +84,9 @@ struct AddTodoView: View {
         
         let newTodo = Todo(
             content: todoName,
+            detail: todoDetail,
             color: todoColor,
-            priority: selectedPriority
+            priority: todoPriority
         )
         grapeViewModel.addGrapes()
         modelContext.insert(newTodo)
