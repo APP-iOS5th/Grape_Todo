@@ -48,4 +48,14 @@ final class Todo {
         self.priority = priority.rawValue
     }
     
+    func priorityToString() -> String {
+        switch self .priority {
+        case 1:
+            return "high"
+        case 2:
+            return "low"
+        default:
+            return "routine"
+        }
+    }
 }

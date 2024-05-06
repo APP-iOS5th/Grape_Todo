@@ -31,11 +31,9 @@ struct TodoView: View {
                     .foregroundColor(todo.completed ? .secondary : .primary)
 
                 Spacer()
-                Text("\(todo.priority)")
-                Spacer()
 
                 Button(action: {showingFixTodo = true}) {
-                    Image(systemName: "chevron.right")
+                    Text(todo.priorityToString())
                 }.buttonStyle(.plain).sheet(isPresented:$showingFixTodo) {FixTodoView(todo: $todo)}
             }
         }
