@@ -189,5 +189,5 @@ struct GrapesForCompletedTodos: View {
 
 #Preview {
     ContentView(grapeViewModel: GrapeViewModel())
-        .modelContainer(for: Todo.self, inMemory: false)
+        .modelContainer(for: Todo.self, inMemory: true)
 }

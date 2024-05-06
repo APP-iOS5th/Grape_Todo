@@ -24,13 +24,12 @@ struct TodoView: View {
                     .foregroundColor(todo.completed ? .secondary : .primary)
 
                 Spacer()
-                Text("\(todo.priority)")
+                Text("(todo.priority)")
                 Spacer()
 
-                Button(action: {showingTodoDetail = true}) {
+                Button(action: {showingFixTodo = true}) {
                     Image(systemName: "chevron.right")
-                }/*.buttonStyle(.plain).navigationDestination(isPresented:$showingTodoDetail) {TodoDetailView(todo: todo)}*/
-                    .buttonStyle(.plain).navigationDestination(isPresented:$showingFixTodo) {FixTodoView(todo: $todo)}
+                }.buttonStyle(.plain).sheet(isPresented:$showingFixTodo) {FixTodoView(todo: $todo)}
             }
         }
     }
@@ -44,6 +43,3 @@ struct TodoView: View {
         }
     }
 }
-
-
-
