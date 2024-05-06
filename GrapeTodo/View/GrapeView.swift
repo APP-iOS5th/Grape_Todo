@@ -1,74 +1,56 @@
-////
-////  GrapeView.swift
-////  GrapeTodo
-////
-////  Created by 김승원 on 5/2/24.
-////
-//
 import SwiftUI
 import SwiftData
 
 struct GrapeView: View {
-    @EnvironmentObject var grapeViewModel: GrapeViewModel  // @ObservedObject,  @EnvironmentObject
+    @EnvironmentObject var grapeViewModel: GrapeViewModel
     @Query private var todos: [Todo]
-    
+    @State private var isLoaded = false
+
     var body: some View {
-        //        GeometryReader { geometry in
-        //            VStack(spacing: -10) {
-        //                ForEach(todos, id: \.id) { todo in
-        //                    Circle()
-        //                        .fill(todo.completed ? Color.green : Color.gray)
-        //                        .stroke(Color.white, lineWidth: 2)
-        //                        .frame(width: 40, height: 40) // Circle의 크기를 고정값으로 설정
-        //                        .padding(.horizontal, 5) // 각 원 사이에 일정한 간격 추가
-        //                }
-        //                Spacer()
-        //            }
-        //            .padding(.top, 10)
-        //            .frame(maxWidth: .infinity, maxHeight: .infinity) // 최대 크기 설정
-        //        }
         ZStack {
             VStack(spacing: -10) {
-                ForEach(grapeViewModel.grapes.indices, id: \.self) { rowIndex in   // 행
-                    HStack(spacing: -15) {  // 층
-                        ForEach(grapeViewModel.grapes[rowIndex], id: \.id) { grapes in   // 열
+                ForEach(grapeViewModel.grapes.indices, id: \.self) { rowIndex in
+                    HStack(spacing: -15) {
+                        ForEach(grapeViewModel.grapes[rowIndex], id: \.id) { grapes in
                             Circle()
-                                .fill(grapes.isCompleted ? Color.green : Color.gray)
+                                .fill(grapes.isCompleted ? Color(hex: "#BAF7AD") : Color(hex: "#F4F4F4"))
                                 .stroke(Color.white, lineWidth: 2)
                                 .frame(width: 40, height: 40)
                         }
                     }
-
                 }
-                Spacer()
             }
-            .padding(.top, 10)
         }
+        .onAppear() {
+            if !isLoaded {
+                for _ in 0..<todos.count {
+                    grapeViewModel.addGrapes()
+                }
 
-        // 2차원 배열의 행과 열 인덱스 확인하기
-        //        Text("총 \(grapeViewModel.totalItemCount)개의 항목이 있습니다.")
-        // completedFinish가 변경될 때마다 실행됨
-        .onReceive(grapeViewModel.$completedCount) { newFinish in
-            // 만약 newFinish가 0보다 크고 grape 배열의 총 항목 수보다 작거나 같다면
-            if newFinish > 0 && newFinish <= grapeViewModel.grapes.flatMap({ $0 }).count {
-                var completedCount = 0 // 완료된 항목의 개수를 변수로 초기화한다.
-                for rowIndex in 0..<grapeViewModel.grapes.count {   // grape 배열의 행(row)을 반복한다.
-                    for columnIndex in 0..<grapeViewModel.grapes[rowIndex].count {  // 각 헹의 열(column)를 반복한다.
-                        // 완료된 항목의 개수가 newFinish보다 작다면
-                        if completedCount < newFinish {
-                            // 해당 항목의 isCompleted를 true로 설정하고,
+                if grapeViewModel.completedCount >= 16 {
+                    for rowIndex in 0..<grapeViewModel.grapes.count {
+                        for columnIndex in 0..<grapeViewModel.grapes[rowIndex].count {
                             grapeViewModel.grapes[rowIndex][columnIndex].isCompleted = true
-                            // 완료된 항목의 개수를 증가시킨다.
+                        }
+                    }
+                }
+                isLoaded = true
+            }
+        }
+        .onReceive(grapeViewModel.$completedCount) { newFinish in
+            if newFinish > 0 && newFinish <= grapeViewModel.grapes.flatMap({ $0 }).count {
+                var completedCount = 0
+                for rowIndex in 0..<grapeViewModel.grapes.count {
+                    for columnIndex in 0..<grapeViewModel.grapes[rowIndex].count {
+                        if completedCount < newFinish {
+                            grapeViewModel.grapes[rowIndex][columnIndex].isCompleted = true
                             completedCount += 1
                         } else {
-                            // 그렇지 않으면 해당 항목의 isCompleted를 false로 설정한다.
                             grapeViewModel.grapes[rowIndex][columnIndex].isCompleted = false
                         }
                     }
                 }
             } else if newFinish == 0 {
-                // 만약 newFinish가 0이라면,
-                // grape 배열의 모든 항목의 isCompleted를 false로 설정한다.
                 for rowIndex in 0..<grapeViewModel.grapes.count {
                     for columnIndex in 0..<grapeViewModel.grapes[rowIndex].count {
                         grapeViewModel.grapes[rowIndex][columnIndex].isCompleted = false
@@ -76,48 +58,13 @@ struct GrapeView: View {
                 }
             }
         }
-    } // body }
-}   // View }
+    }
+}
 
 
+#Preview {
+    GrapeView()
+        .environmentObject(GrapeViewModel())
+}
 
 
-//
-//        // completedFinish가 변경될 때마다 실행됨
-//        .onReceive(listViewModel.$completedFinish) { newFinish in
-//            // 만약 newFinish가 0보다 크고 grape 배열의 총 항목 수보다 작거나 같다면
-//            if newFinish > 0 && newFinish <= podoalViewModel.podoals.flatMap({ $0 }).count {
-//                var completedCount = 0 // 완료된 항목의 개수를 변수로 초기화한다.
-//                for rowIndex in 0..<podoalViewModel.podoals.count {   // grape 배열의 행(row)을 반복한다.
-//                    for columnIndex in 0..<podoalViewModel.podoals[rowIndex].count {  // 각 헹의 열(column)를 반복한다.
-//                        // 완료된 항목의 개수가 newFinish보다 작다면
-//                        if completedCount < newFinish {
-//                            // 해당 항목의 isCompleted를 true로 설정하고,
-//                            podoalViewModel.podoals[rowIndex][columnIndex].isCompleted = true
-//                            // 완료된 항목의 개수를 증가시킨다.
-//                            completedCount += 1
-//                        } else {
-//                            // 그렇지 않으면 해당 항목의 isCompleted를 false로 설정한다.
-//                            podoalViewModel.podoals[rowIndex][columnIndex].isCompleted = false
-//                        }
-//                    }
-//                }
-//            } else if newFinish == 0 {
-//                // 만약 newFinish가 0이라면,
-//                // grape 배열의 모든 항목의 isCompleted를 false로 설정한다.
-//                for rowIndex in 0..<podoalViewModel.podoals.count {
-//                    for columnIndex in 0..<podoalViewModel.podoals[rowIndex].count {
-//                        podoalViewModel.podoals[rowIndex][columnIndex].isCompleted = false
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
-//}
-//
-//
-//#Preview {
-//    GrapeView(podoalViewModel: PodoalViewModel(), listViewModel: ListViewModel())
-//}
-//

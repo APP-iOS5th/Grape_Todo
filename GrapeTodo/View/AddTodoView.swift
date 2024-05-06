@@ -9,21 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct AddTodoView: View {
-
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
 
-    @EnvironmentObject var grapeViewModel: GrapeViewModel // EnvironmentObject 공유된 객체를 쓴다.
+    @EnvironmentObject var grapeViewModel: GrapeViewModel
     @State private var todoName: String = ""
     @State private var todoColor = SelectColor.checked
     @State private var priority = 0
    
+
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section {
-
                         TextField("할 일을 입력하세요.", text: $todoName)
                     }
                     Picker(selection: $priority, label: Text("중요도")) {

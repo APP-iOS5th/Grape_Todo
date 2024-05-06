@@ -14,6 +14,6 @@ struct GrapeTodoApp: App {
         WindowGroup {
             ContentView(grapeViewModel: GrapeViewModel())
         }
-        .modelContainer(for: Todo.self)     // 모델을 연결하려고 씀
+        .modelContainer(for: Todo.self)
     }
 }
