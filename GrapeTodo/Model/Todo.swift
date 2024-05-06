@@ -14,7 +14,7 @@ enum Priority: Int, Identifiable, CaseIterable {
     case low
 
     var id: Self { self}
-       
+
        var description: String {
            switch self {
            case .routine:
@@ -25,7 +25,6 @@ enum Priority: Int, Identifiable, CaseIterable {
                return "low"
            }
        }
-    
 }
 
 @Model
@@ -47,3 +46,4 @@ final class Todo {
         self.priority = priority
     }
 }
+
