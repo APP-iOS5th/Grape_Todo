@@ -47,4 +47,5 @@ final class Todo {
         self.color = color.rawValue
         self.priority = priority.rawValue
     }
+    
 }
