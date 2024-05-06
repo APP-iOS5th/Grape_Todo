@@ -79,20 +79,17 @@ struct FixTodoView: View {
     }
     
     private func save() {
-        print(todoName, todoDetail, todoPriority)
         guard !todoName.isEmpty else { return }
         
         // Update the todo object with the new values
-        todo.content = todoName
-        todo.detail = todoDetail
-        todo.priority = todoPriority.rawValue
-        
-        // Save the changes to CoreData
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+        let fixTodo = Todo(
+            content: todoName,
+            detail: todoDetail,
+            completed: todo.completed,
+            color: SelectColor(rawValue: todo.color)!,
+            priority: todoPriority
+        )
+        todo = fixTodo
         
         dismiss()
     }

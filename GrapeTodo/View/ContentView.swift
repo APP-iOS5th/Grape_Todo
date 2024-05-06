@@ -14,7 +14,7 @@ struct ContentView: View {
     @Environment(\.modelContext)
     private var modelContext
     
-    @Query(sort: \Todo.createdAt, animation: .smooth)
+    @Query(sort: \Todo.priority, animation: .smooth)
     private var todos: [Todo]
 
     @StateObject
