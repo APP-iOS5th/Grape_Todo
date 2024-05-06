@@ -20,6 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct GrapeTodoApp: App {
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) 
     var delegate
     
@@ -28,7 +29,7 @@ struct GrapeTodoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(authService)
+            ContentView(grapeViewModel: GrapeViewModel()).environmentObject(authService)
         }
         .modelContainer(for: Todo.self)
     }

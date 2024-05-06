@@ -8,28 +8,54 @@
 import Foundation
 import SwiftData
 
-@Model
-final class Todo {
-    @Attribute(.unique)
-    var id: UUID
+enum Priority: Int, Identifiable, CaseIterable {
+    case routine
+    case high
+    case low
     
-    var content: String
-    var createdAt: Date
-    var completed: Bool
-    var color: String
+    var id: Self { self}
     
-    init(content: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor) {
-        self.id = UUID()
-        self.content = content
-        self.createdAt = createdAt
-        self.completed = completed
-        self.color = color.rawValue
+    var description: String {
+        switch self {
+        case .routine:
+            return "routine"
+        case .high:
+            return "high"
+        case .low:
+            return "low"
+        }
     }
 }
 
-enum Priority: Comparable, Codable {
-    case routine
-    case high
-    case medium
-    case low
+@Model
+final class Todo {
+    @Attribute(.unique) var id: UUID
+    
+    var content: String
+    var detail: String
+    var createdAt: Date
+    var completed: Bool
+    var color: String
+    var priority: Int
+    
+    init(content: String, detail: String, createdAt: Date = Date(), completed: Bool = false, color: SelectColor, priority: Priority) {
+        self.id = UUID()
+        self.content = content
+        self.detail = detail
+        self.createdAt = createdAt
+        self.completed = completed
+        self.color = color.rawValue
+        self.priority = priority.rawValue
+    }
+    
+    func priorityToString() -> String {
+        switch self .priority {
+        case 1:
+            return "high"
+        case 2:
+            return "low"
+        default:
+            return "routine"
+        }
+    }
 }
