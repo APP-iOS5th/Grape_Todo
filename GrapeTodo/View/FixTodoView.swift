@@ -81,15 +81,9 @@ struct FixTodoView: View {
     private func save() {
         guard !todoTitle.isEmpty else { return }
         
-        // Update the todo object with the new values
-        let fixTodo = Todo(
-            title: todoTitle,
-            detail: todoDetail,
-            completed: todo.completed,
-            color: SelectColor(rawValue: todo.color)!,
-            priority: todoPriority
-        )
-        todo = fixTodo
+        todo.title = todoTitle
+        todo.detail = todoDetail
+        todo.priority = todoPriority.rawValue
         
         dismiss()
     }
